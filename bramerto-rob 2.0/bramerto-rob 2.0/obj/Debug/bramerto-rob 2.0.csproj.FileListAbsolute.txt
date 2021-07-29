@@ -1,0 +1,6 @@
+C:\Users\stepa\source\repos\bramerto-rob 2.0\bramerto-rob 2.0\obj\Debug\bramerto-rob 2.0.csproj.AssemblyReference.cache
+C:\Users\stepa\source\repos\bramerto-rob 2.0\bramerto-rob 2.0\obj\Debug\bramerto_rob_2._0.Cookie.resources
+C:\Users\stepa\source\repos\bramerto-rob 2.0\bramerto-rob 2.0\obj\Debug\bramerto_rob_2._0.Properties.Resources.resources
+C:\Users\stepa\source\repos\bramerto-rob 2.0\bramerto-rob 2.0\obj\Debug\bramerto_rob_2._0.StartKill.resources
+C:\Users\stepa\source\repos\bramerto-rob 2.0\bramerto-rob 2.0\obj\Debug\bramerto-rob 2.0.csproj.GenerateResource.cache
+C:\Users\stepa\source\repos\bramerto-rob 2.0\bramerto-rob 2.0\obj\Debug\bramerto-rob 2.0.csproj.CoreCompileInputs.cache
