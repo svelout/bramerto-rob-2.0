@@ -44,6 +44,7 @@ namespace bramerto_rob_2._0
             timer1.Enabled = false;
             timer1.Stop();
             this.WindowState = FormWindowState.Minimized;
+            
         }
     }
 }

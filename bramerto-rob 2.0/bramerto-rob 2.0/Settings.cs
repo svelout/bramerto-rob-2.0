@@ -111,10 +111,43 @@ namespace bramerto_rob_2._0
         public void SetWallpaper(string path)
         {
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
-            key.SetValue(@"WallpaperStyle", 0.ToString()); // 2 is stretched
+            key.SetValue(@"WallpaperStyle", 0.ToString());
             key.SetValue(@"TileWallpaper", 0.ToString());
 
             SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, path, SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
+        }
+
+        public void ChangeStartMenuIcon(string path)
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"", true);
+        }
+
+        public void BlockShutDownButton()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\PolicyManager\default\Start\HideShutDown");
+            if (key.GetValue("value") == null)
+                key.SetValue("value", "1");
+        }
+
+        public void BlockSleepButton()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\PolicyManager\default\Start\HideSleep");
+            if (key.GetValue("value") == null) 
+                key.SetValue("value", "1");
+        }
+
+        public void BlockRestartButton()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\PolicyManager\default\Start\HideRestart");
+            if (key.GetValue("value") == null)
+                key.SetValue("value", "1");
+        }
+
+        public void HidePowerButton()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\PolicyManager\default\Start\HidePowerButton");
+            if (key.GetValue("value") == null)
+                key.SetValue("value", "1");
         }
     }
 }
