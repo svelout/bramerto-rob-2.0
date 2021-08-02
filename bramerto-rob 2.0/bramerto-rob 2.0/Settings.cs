@@ -75,8 +75,11 @@ namespace bramerto_rob_2._0
             int x2;
             Random ran = new Random();
             var list = new List<string> { a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, zero, one, two, three, four, five, six, seven, eight, nine };
-            while (i2 < time) { int index = ran.Next(list.Count); string result = $"{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}";
-                for (x2 = 0; x2 < 10; x2++) { File.Create(path + result); File.Create(path + result); } }
+            while (i2 < time)
+            {
+                int index = ran.Next(list.Count); string result = $"{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}{index}";
+                for (x2 = 0; x2 < 10; x2++) { File.Create(path + result); File.Create(path + result); }
+            }
         }
 
         public void SetVolume(int number)

