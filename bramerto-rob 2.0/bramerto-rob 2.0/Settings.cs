@@ -104,7 +104,8 @@ namespace bramerto_rob_2._0
 
         public void CreateFilesOnDesktop(int size, string site, string filename)
         {
-            wc.DownloadFile(site, desktop);
+            string desktop2 = @"C:\Users\" + Environment.UserName + @"\Desktop\" + filename;
+            wc.DownloadFile(site, desktop2);
             for (int i = 0; i < size; i++) { string num = desktop + i.ToString() + filename; File.Copy(desktop, num, true); }
         }
 
