@@ -9,5 +9,5 @@
 * Убивает компьютер с помощью реестра
 * Блокирует клавиатуру
 # Контакты
-*https://vk.com/bramerto_bro
-*https://telegram.com/besvnet
+* https://vk.com/bramerto_bro
+* https://telegram.com/besvnet
