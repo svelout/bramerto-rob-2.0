@@ -10,4 +10,4 @@
 * Блокирует клавиатуру
 # Контакты
 * https://vk.com/bramerto_bro
-* https://telegram.com/besvnet
+* https://t.me/besvnet
